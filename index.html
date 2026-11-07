@@ -110,6 +110,46 @@ footer{text-align:center;color:#a9c1ca;padding:22px 10px;border-top:1px solid #1
 .modal-close{background:#a91e28;color:white;border:0;padding:10px 16px;border-radius:8px}
 .spin-wheel{font-size:62px;margin:10px auto;color:var(--gold)}
 .mobile-nav{display:none}
+
+/* NEW: VISIBLE CHAPORT LIVE CHAT BUTTON */
+.orion-live-chat-button{
+  position:fixed;
+  right:12px;
+  bottom:140px;
+  z-index:999990;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  min-height:52px;
+  padding:10px 17px;
+  border:2px solid #ffe49a;
+  border-radius:35px;
+  background:linear-gradient(135deg,#ffe58a,#e8ae32,#c98216);
+  color:#17212a;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.4px;
+  box-shadow:0 5px 22px #0009,0 0 15px #e8b94355;
+  cursor:pointer;
+  animation:orionChatPulse 2s infinite;
+}
+.orion-live-chat-button .chat-icon{
+  width:29px;
+  height:29px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#102d3a;
+  color:#fff;
+  font-size:17px;
+}
+@keyframes orionChatPulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.045)}
+}
+
 @media(min-width:600px){.games-grid{grid-template-columns:repeat(3,minmax(0,1fr))}main{padding-left:20px;padding-right:20px}.game-logo{height:165px}}
 @media(min-width:900px){.games-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:599px){
@@ -127,6 +167,7 @@ header{padding:14px 10px 20px}
 .nav-item.active{color:#ffd45c}
 .install-float{bottom:78px}
 .floating-buttons{bottom:78px}
+.orion-live-chat-button{bottom:190px;right:12px;padding:9px 14px;min-height:48px;font-size:12px}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
@@ -224,6 +265,16 @@ header{padding:14px 10px 20px}
   <button class="float-btn telegram-float" type="button" aria-label="Open Telegram Chat" onclick="openTelegram()">✈</button>
 </div>
 
+<!-- NEW: FRONT-FACING LIVE CHAT BUTTON -->
+<button
+  class="orion-live-chat-button"
+  type="button"
+  onclick="openOrionChaportChat()"
+  aria-label="Open Live Chat">
+  <span class="chat-icon">💬</span>
+  <span>LIVE CHAT</span>
+</button>
+
 <nav class="mobile-nav" aria-label="Mobile navigation">
   <a class="nav-item active" href="#home"><span>🏠</span><span>Home</span></a>
   <a class="nav-item" href="#games"><span>🎮</span><span>Games</span></a>
@@ -268,6 +319,15 @@ function openTelegram(){
 /* Keep old button function references working */
 function openLiveChat(){
   openMessenger();
+}
+
+/* NEW: OPEN CHAPORT LIVE CHAT */
+function openOrionChaportChat(){
+  if(window.chaport && typeof window.chaport.q==="function"){
+    window.chaport.q("open");
+  }else{
+    alert("Live Chat is still loading. Please wait a moment and try again.");
+  }
 }
 
 const games = [
@@ -647,16 +707,33 @@ if("serviceWorker" in navigator&&location.protocol==="https:"){
 }
 </script>
 
-<!-- Begin of Chaport Live Chat code -->
+<!-- CHAPORT LIVE CHAT WIDGET -->
 <script type="text/javascript">
 (function(w,d,v3){
-w.chaportConfig = {
-appId : '6aef60e3fd3025974d436f8e',
-};
+  w.chaportConfig = {
+    appId : '6aef60e3fd3025974d436f8e'
+  };
 
-if(w.chaport)return;v3=w.chaport={};v3._q=[];v3._l={};v3.q=function(){v3._q.push(arguments)};v3.on=function(e,fn){if(!v3._l[e])v3._l[e]=[];v3._l[e].push(fn)};var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://app.chaport.com/javascripts/insert.js';var ss=d.getElementsByTagName('script')[0];ss.parentNode.insertBefore(s,ss)})(window, document);
+  if(w.chaport)return;
+  v3=w.chaport={};
+  v3._q=[];
+  v3._l={};
+  v3.q=function(){v3._q.push(arguments)};
+  v3.on=function(e,fn){
+    if(!v3._l[e])v3._l[e]=[];
+    v3._l[e].push(fn);
+  };
+
+  var s=d.createElement('script');
+  s.type='text/javascript';
+  s.async=true;
+  s.src='https://app.chaport.com/javascripts/insert.js';
+
+  var ss=d.getElementsByTagName('script')[0];
+  ss.parentNode.insertBefore(s,ss);
+})(window, document);
 </script>
-<!-- End of Chaport Live Chat code -->
+<!-- END CHAPORT LIVE CHAT WIDGET -->
 
 </body>
 </html>
