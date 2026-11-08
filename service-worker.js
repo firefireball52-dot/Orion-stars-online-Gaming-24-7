@@ -1,35 +1,45 @@
-const CACHE_NAME = "orion-star-pwa-v2";
+const CACHE_NAME = "orion-star-pwa-v3";
 
 const APP_FILES = [
   "./",
   "./index.html",
-  "./manifest.json",
-  "./icon.svg",
-  "./icon-192.png",
-  "./icon-512.png"
+  "./manifest.json"
 ];
 
 const APP_URL = new URL("./index.html", self.registration.scope);
 
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(
-        APP_FILES.map(file => new URL(file, self.registration.scope).href)
-      ))
-      .then(() => self.skipWaiting())
+    (async () => {
+      const cache = await caches.open(CACHE_NAME);
+
+      await cache.addAll(
+        APP_FILES.map(file =>
+          new URL(file, self.registration.scope).href
+        )
+      );
+
+      await self.skipWaiting();
+    })()
   );
 });
 
 self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys()
-      .then(keys => Promise.all(
+    (async () => {
+      const keys = await caches.keys();
+
+      await Promise.all(
         keys
-          .filter(key => key !== CACHE_NAME)
+          .filter(key =>
+            key.startsWith("orion-star-pwa-") &&
+            key !== CACHE_NAME
+          )
           .map(key => caches.delete(key))
-      ))
-      .then(() => self.clients.claim())
+      );
+
+      await self.clients.claim();
+    })()
   );
 });
 
@@ -37,38 +47,57 @@ self.addEventListener("fetch", event => {
   const request = event.request;
   const url = new URL(request.url);
 
-  if (request.method !== "GET" || url.origin !== self.location.origin) {
+  if (
+    request.method !== "GET" ||
+    url.origin !== self.location.origin
+  ) {
     return;
   }
 
   if (request.mode === "navigate") {
     event.respondWith(
-      fetch(request)
-        .then(response => {
+      (async () => {
+        try {
+          const response = await fetch(request);
+
           if (response.ok) {
-            const copy = response.clone();
-            caches.open(CACHE_NAME)
-              .then(cache => cache.put(APP_URL, copy));
+            const cache = await caches.open(CACHE_NAME);
+            await cache.put(APP_URL, response.clone());
           }
+
           return response;
-        })
-        .catch(() => caches.match(APP_URL))
+        } catch (error) {
+          return (
+            await caches.match(APP_URL) ||
+            await caches.match(
+              new URL("./", self.registration.scope).href
+            )
+          );
+        }
+      })()
     );
+
     return;
   }
 
   event.respondWith(
-    caches.match(request).then(cached => {
+    (async () => {
+      const cached = await caches.match(request);
+
       if (cached) return cached;
 
-      return fetch(request).then(response => {
+      try {
+        const response = await fetch(request);
+
         if (response.ok) {
-          const copy = response.clone();
-          caches.open(CACHE_NAME)
-            .then(cache => cache.put(request, copy));
+          const cache = await caches.open(CACHE_NAME);
+          await cache.put(request, response.clone());
         }
+
         return response;
-      });
-    })
+      } catch (error) {
+        return Response.error();
+      }
+    })()
   );
 });
