@@ -1,24 +1,25 @@
-const CACHE_NAME = "orion-star-pwa-v3";
+const CACHE_NAME = "orion-star-pwa-v4";
 
 const APP_FILES = [
   "./",
   "./index.html",
-  "./manifest.json"
+  "./manifest.json",
+  "./icon-192.png",
+  "./icon-512.png"
 ];
 
 const APP_URL = new URL("./index.html", self.registration.scope);
+const HOME_URL = new URL("./", self.registration.scope);
 
 self.addEventListener("install", event => {
   event.waitUntil(
     (async () => {
       const cache = await caches.open(CACHE_NAME);
-
       await cache.addAll(
         APP_FILES.map(file =>
           new URL(file, self.registration.scope).href
         )
       );
-
       await self.skipWaiting();
     })()
   );
@@ -69,9 +70,7 @@ self.addEventListener("fetch", event => {
         } catch (error) {
           return (
             await caches.match(APP_URL) ||
-            await caches.match(
-              new URL("./", self.registration.scope).href
-            )
+            await caches.match(HOME_URL)
           );
         }
       })()
