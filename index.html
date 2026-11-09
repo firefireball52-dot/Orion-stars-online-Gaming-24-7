@@ -10,6 +10,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="manifest" href="./manifest.json">
 <link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./icon-192.png">
 <meta property="og:title" content="ORION STAR ONLINE CASINO | Gaming Platforms">
 <meta property="og:description" content="Explore gaming platforms in one place.">
 <meta property="og:type" content="website">
@@ -110,46 +111,9 @@ footer{text-align:center;color:#a9c1ca;padding:22px 10px;border-top:1px solid #1
 .modal-close{background:#a91e28;color:white;border:0;padding:10px 16px;border-radius:8px}
 .spin-wheel{font-size:62px;margin:10px auto;color:var(--gold)}
 .mobile-nav{display:none}
-
-/* NEW: VISIBLE CHAPORT LIVE CHAT BUTTON */
-.orion-live-chat-button{
-  position:fixed;
-  right:12px;
-  bottom:140px;
-  z-index:999990;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:9px;
-  min-height:52px;
-  padding:10px 17px;
-  border:2px solid #ffe49a;
-  border-radius:35px;
-  background:linear-gradient(135deg,#ffe58a,#e8ae32,#c98216);
-  color:#17212a;
-  font-size:13px;
-  font-weight:900;
-  letter-spacing:.4px;
-  box-shadow:0 5px 22px #0009,0 0 15px #e8b94355;
-  cursor:pointer;
-  animation:orionChatPulse 2s infinite;
-}
-.orion-live-chat-button .chat-icon{
-  width:29px;
-  height:29px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:#102d3a;
-  color:#fff;
-  font-size:17px;
-}
-@keyframes orionChatPulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.045)}
-}
-
+.orion-live-chat-button{position:fixed;right:12px;bottom:140px;z-index:999990;display:flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:10px 17px;border:2px solid #ffe49a;border-radius:35px;background:linear-gradient(135deg,#ffe58a,#e8ae32,#c98216);color:#17212a;font-size:13px;font-weight:900;letter-spacing:.4px;box-shadow:0 5px 22px #0009,0 0 15px #e8b94355;cursor:pointer;animation:orionChatPulse 2s infinite}
+.orion-live-chat-button .chat-icon{width:29px;height:29px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#102d3a;color:#fff;font-size:17px}
+@keyframes orionChatPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
 @media(min-width:600px){.games-grid{grid-template-columns:repeat(3,minmax(0,1fr))}main{padding-left:20px;padding-right:20px}.game-logo{height:165px}}
 @media(min-width:900px){.games-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:599px){
@@ -177,83 +141,71 @@ header{padding:14px 10px 20px}
 <div class="topbar">★ ORION STAR ONLINE CASINO ★ • ALL PLATFORMS IN ONE PLACE</div>
 
 <header id="home">
-  <div class="header-line">
-    <div class="brand">
-      <div class="brand-icon">♛</div>
-      <div class="brand-name">ORION <span>STAR</span></div>
-    </div>
-    <div class="header-actions">
-      <button class="small-btn" onclick="openMessenger()" type="button">💬 Messenger</button>
-      <button class="small-btn menu-btn" onclick="toggleMenu()" type="button" aria-label="Open menu">☰</button>
-    </div>
-  </div>
-  <div class="hero">
-    <h1>Welcome to <span>ORION STAR ONLINE CASINO</span></h1>
-    <p class="subtitle">Explore your favorite gaming platforms in one convenient place. Contact support for account and platform assistance.</p>
-    <div class="actions">
-      <button class="action-btn" onclick="installApp()" type="button">⬇ INSTALL APP</button>
-      <button class="action-btn secondary" onclick="openMessenger()" type="button">💬 MESSENGER</button>
-      <button class="action-btn secondary" onclick="openTelegram()" type="button">✈ TELEGRAM</button>
-      <button class="action-btn secondary" onclick="showModal('spinModal')" type="button">🎡 SPIN</button>
-    </div>
-  </div>
+<div class="header-line">
+<div class="brand"><div class="brand-icon">♛</div><div class="brand-name">ORION <span>STAR</span></div></div>
+<div class="header-actions">
+<button class="small-btn" onclick="openMessenger()" type="button">💬 Messenger</button>
+<button class="small-btn menu-btn" onclick="toggleMenu()" type="button" aria-label="Open menu">☰</button>
+</div>
+</div>
+<div class="hero">
+<h1>Welcome to <span>ORION STAR ONLINE CASINO</span></h1>
+<p class="subtitle">Explore your favorite gaming platforms in one convenient place. Contact support for account and platform assistance.</p>
+<div class="actions">
+<button class="action-btn" onclick="installApp()" type="button">⬇ INSTALL APP</button>
+<button class="action-btn secondary" onclick="openMessenger()" type="button">💬 MESSENGER</button>
+<button class="action-btn secondary" onclick="openTelegram()" type="button">✈ TELEGRAM</button>
+<button class="action-btn secondary" onclick="showModal('spinModal')" type="button">🎡 SPIN</button>
+</div>
+</div>
 </header>
 
 <div class="logo-strip" id="logoStrip" aria-label="Featured game logos"></div>
 <div class="ticker-row">
-  <div class="ticker"><div class="ticker-track" id="tickerOne"></div></div>
-  <button class="live-win-btn" type="button" onclick="toggleLiveWin()" aria-expanded="false" id="liveWinButton">● LIVE WINS</button>
+<div class="ticker"><div class="ticker-track" id="tickerOne"></div></div>
+<button class="live-win-btn" type="button" onclick="toggleLiveWin()" aria-expanded="false" id="liveWinButton">● LIVE WINS</button>
 </div>
 <div class="live-win-panel" id="liveWinPanel">Platform highlights. Verified live results are not connected to this website.</div>
 <div class="ticker reverse"><div class="ticker-track" id="tickerTwo"></div></div>
 
 <main>
-  <section class="promo-banner" id="offers">
-    <div class="promo-icon">🎁</div>
-    <span class="bonus-pill">SPECIAL WELCOME OFFER</span>
-    <h2>✦ 5 FREE PLAYS ✦</h2>
-    <p>Ask support to confirm offer availability and eligibility.</p>
-    <h2>180% WELCOME BONUS</h2>
-    <p>Terms and availability must be confirmed with support.</p>
-  </section>
+<section class="promo-banner" id="offers">
+<div class="promo-icon">🎁</div>
+<span class="bonus-pill">SPECIAL WELCOME OFFER</span>
+<h2>✦ 5 FREE PLAYS ✦</h2>
+<p>Ask support to confirm offer availability and eligibility.</p>
+<h2>180% WELCOME BONUS</h2>
+<p>Terms and availability must be confirmed with support.</p>
+</section>
+<div class="featured-logos" id="featuredLogos"></div>
+<div class="section-heading" id="games">
+<h2>🎮 All Gaming Platforms</h2>
+<span class="count" id="gameCount">0 platforms</span>
+</div>
+<input id="searchBox" class="search-box" type="search" placeholder="🔎 Search your favorite game..." aria-label="Search games">
+<div class="games-grid" id="gamesGrid"></div>
+<div class="empty" id="emptyMessage">No games found. Try another name.</div>
 
-  <div class="featured-logos" id="featuredLogos"></div>
+<section class="extra-section" id="wallet">
+<h2>💳 Deposit / Withdraw Support</h2>
+<p>Contact support for available payment methods and transaction instructions.</p>
+<div class="payment-list">
+<span class="payment-chip">Cash App</span><span class="payment-chip">Venmo</span><span class="payment-chip">Zelle</span><span class="payment-chip">Chime</span><span class="payment-chip">PayPal</span><span class="payment-chip">Bitcoin</span><span class="payment-chip">USDT</span><span class="payment-chip">Other</span>
+</div>
+<div class="contact-actions">
+<button class="action-btn" type="button" onclick="openMessenger()">DEPOSIT / WITHDRAW</button>
+<button class="action-btn secondary" type="button" onclick="openMessenger()">CONTACT SUPPORT</button>
+</div>
+</section>
 
-  <div class="section-heading" id="games">
-    <h2>🎮 All Gaming Platforms</h2>
-    <span class="count" id="gameCount">0 platforms</span>
-  </div>
-  <input id="searchBox" class="search-box" type="search" placeholder="🔎 Search your favorite game..." aria-label="Search games">
-  <div class="games-grid" id="gamesGrid"></div>
-  <div class="empty" id="emptyMessage">No games found. Try another name.</div>
-
-  <section class="extra-section" id="wallet">
-    <h2>💳 Deposit / Withdraw Support</h2>
-    <p>Contact support for available payment methods and transaction instructions.</p>
-    <div class="payment-list">
-      <span class="payment-chip">Cash App</span>
-      <span class="payment-chip">Venmo</span>
-      <span class="payment-chip">Zelle</span>
-      <span class="payment-chip">Chime</span>
-      <span class="payment-chip">PayPal</span>
-      <span class="payment-chip">Bitcoin</span>
-      <span class="payment-chip">USDT</span>
-      <span class="payment-chip">Other</span>
-    </div>
-    <div class="contact-actions">
-      <button class="action-btn" type="button" onclick="openMessenger()">DEPOSIT / WITHDRAW</button>
-      <button class="action-btn secondary" type="button" onclick="openMessenger()">CONTACT SUPPORT</button>
-    </div>
-  </section>
-
-  <section class="extra-section" id="support">
-    <h2>💬 Need Help?</h2>
-    <p>Contact support through Facebook Messenger or Telegram.</p>
-    <div class="contact-actions">
-      <button class="action-btn green" onclick="openMessenger()" type="button">MESSENGER CHAT</button>
-      <button class="action-btn secondary" onclick="openTelegram()" type="button">✈ TELEGRAM CHAT</button>
-    </div>
-  </section>
+<section class="extra-section" id="support">
+<h2>💬 Need Help?</h2>
+<p>Contact support through Facebook Messenger or Telegram.</p>
+<div class="contact-actions">
+<button class="action-btn green" onclick="openMessenger()" type="button">MESSENGER CHAT</button>
+<button class="action-btn secondary" onclick="openTelegram()" type="button">✈ TELEGRAM CHAT</button>
+</div>
+</section>
 </main>
 
 <footer>© <span id="year"></span> ORION STAR ONLINE CASINO. All rights reserved.</footer>
@@ -261,76 +213,59 @@ header{padding:14px 10px 20px}
 <button class="install-float" type="button" onclick="installApp()">⬇ Install App</button>
 
 <div class="floating-buttons">
-  <button class="float-btn chat-float" type="button" aria-label="Open Facebook Messenger" onclick="openMessenger()">➤</button>
-  <button class="float-btn telegram-float" type="button" aria-label="Open Telegram Chat" onclick="openTelegram()">✈</button>
+<button class="float-btn chat-float" type="button" aria-label="Open Facebook Messenger" onclick="openMessenger()">➤</button>
+<button class="float-btn telegram-float" type="button" aria-label="Open Telegram Chat" onclick="openTelegram()">✈</button>
 </div>
 
-<!-- NEW: FRONT-FACING LIVE CHAT BUTTON -->
-<button
-  class="orion-live-chat-button"
-  type="button"
-  onclick="openOrionChaportChat()"
-  aria-label="Open Live Chat">
-  <span class="chat-icon">💬</span>
-  <span>LIVE CHAT</span>
+<button class="orion-live-chat-button" type="button" onclick="openOrionChaportChat()" aria-label="Open Live Chat">
+<span class="chat-icon">💬</span><span>LIVE CHAT</span>
 </button>
 
 <nav class="mobile-nav" aria-label="Mobile navigation">
-  <a class="nav-item active" href="#home"><span>🏠</span><span>Home</span></a>
-  <a class="nav-item" href="#games"><span>🎮</span><span>Games</span></a>
-  <a class="nav-item" href="#support"><span>💬</span><span>Chat</span></a>
-  <a class="nav-item" href="#offers"><span>🏷️</span><span>Offers</span></a>
-  <a class="nav-item" href="#wallet"><span>👛</span><span>Wallet</span></a>
+<a class="nav-item active" href="#home"><span>🏠</span><span>Home</span></a>
+<a class="nav-item" href="#games"><span>🎮</span><span>Games</span></a>
+<a class="nav-item" href="#support"><span>💬</span><span>Chat</span></a>
+<a class="nav-item" href="#offers"><span>🏷️</span><span>Offers</span></a>
+<a class="nav-item" href="#wallet"><span>👛</span><span>Wallet</span></a>
 </nav>
 
 <div class="modal" id="installModal" role="dialog" aria-modal="true" aria-labelledby="installTitle">
-  <div class="modal-box">
-    <h2 id="installTitle">⬇ Install ORION STAR ONLINE CASINO</h2>
-    <p id="installMessage">If installation is available, use the button below.</p>
-    <button class="action-btn" id="installConfirm" type="button" onclick="confirmInstall()">INSTALL NOW</button>
-    <p><b>Manual method:</b><br>Open this website in Chrome, tap the three dots (⋮), then select “Install app” or “Add to Home screen” if available.</p>
-    <button class="modal-close" type="button" onclick="hideModal('installModal')">CLOSE</button>
-  </div>
+<div class="modal-box">
+<h2 id="installTitle">⬇ Install ORION STAR ONLINE CASINO</h2>
+<p id="installMessage">Checking installation availability...</p>
+<button class="action-btn" id="installConfirm" type="button" onclick="confirmInstall()">INSTALL NOW</button>
+<p id="manualInstall"><b>Manual method:</b><br>Open this website in Chrome, tap the three dots (⋮), then select “Install app” or “Add to Home screen” if available.</p>
+<button class="modal-close" type="button" onclick="hideModal('installModal')">CLOSE</button>
+</div>
 </div>
 
 <div class="modal" id="spinModal" role="dialog" aria-modal="true" aria-labelledby="spinTitle">
-  <div class="modal-box">
-    <h2 id="spinTitle">🎡 Spin Wheel</h2>
-    <div class="spin-wheel" id="spinWheel">🎡</div>
-    <p id="spinResult">Tap the button to spin.</p>
-    <button class="action-btn" type="button" onclick="spinWheel()">SPIN NOW</button>
-    <button class="modal-close" type="button" onclick="hideModal('spinModal')">CLOSE</button>
-  </div>
+<div class="modal-box">
+<h2 id="spinTitle">🎡 Spin Wheel</h2>
+<div class="spin-wheel" id="spinWheel">🎡</div>
+<p id="spinResult">Tap the button to spin.</p>
+<button class="action-btn" type="button" onclick="spinWheel()">SPIN NOW</button>
+<button class="modal-close" type="button" onclick="hideModal('spinModal')">CLOSE</button>
+</div>
 </div>
 
 <script>
-/* FACEBOOK MESSENGER AND TELEGRAM */
-const MESSENGER_URL = "https://m.me/100095251569745";
-const TELEGRAM_URL = "https://t.me/ONLINEGAMING241";
+const MESSENGER_URL="https://m.me/100095251569745";
+const TELEGRAM_URL="https://t.me/ONLINEGAMING241";
 
-function openMessenger(){
-  window.open(MESSENGER_URL,"_blank","noopener,noreferrer");
-}
+function openMessenger(){window.open(MESSENGER_URL,"_blank","noopener,noreferrer")}
+function openTelegram(){window.open(TELEGRAM_URL,"_blank","noopener,noreferrer")}
+function openLiveChat(){openMessenger()}
 
-function openTelegram(){
-  window.open(TELEGRAM_URL,"_blank","noopener,noreferrer");
-}
-
-/* Keep old button function references working */
-function openLiveChat(){
-  openMessenger();
-}
-
-/* NEW: OPEN CHAPORT LIVE CHAT */
 function openOrionChaportChat(){
-  if(window.chaport && typeof window.chaport.q==="function"){
+  if(window.chaport&&typeof window.chaport.q==="function"){
     window.chaport.q("open");
   }else{
     alert("Live Chat is still loading. Please wait a moment and try again.");
   }
 }
 
-const games = [
+const games=[
 ["Orion Star","http://start.orionstars.vip:8580/"],
 ["Milkyway","https://milkywayapp.xyz/"],
 ["Juwa","https://dl.juwa777.com/"],
@@ -414,8 +349,97 @@ const emptyMessage=document.getElementById("emptyMessage");
 const numberOptions=[500,600,700,800,900,1000,1200,1500,1800,2000];
 const countMap=new Map();
 const logoCache=new Map();
+
+/* INSTALL APP SYSTEM */
 let installPrompt=null;
 
+function isAppInstalled(){
+  return window.matchMedia("(display-mode: standalone)").matches||
+    window.matchMedia("(display-mode: fullscreen)").matches||
+    window.navigator.standalone===true;
+}
+
+function showInstallHelp(message){
+  document.getElementById("installMessage").textContent=message;
+  document.getElementById("installConfirm").style.display="none";
+  document.getElementById("manualInstall").style.display="block";
+  showModal("installModal");
+}
+
+async function runInstallPrompt(){
+  if(!installPrompt){
+    showInstallHelp("Chrome has not made the direct installation option available yet. Use the Chrome menu ⋮ and choose Install app or Add to Home screen if shown.");
+    return;
+  }
+
+  const promptEvent=installPrompt;
+  installPrompt=null;
+
+  try{
+    promptEvent.prompt();
+    const choice=await promptEvent.userChoice;
+
+    if(choice&&choice.outcome==="accepted"){
+      document.getElementById("installMessage").textContent="Installation accepted. Please wait for your app to finish installing.";
+      document.getElementById("installConfirm").style.display="none";
+    }else{
+      document.getElementById("installMessage").textContent="Installation was cancelled. You can try again later or use Chrome menu ⋮.";
+      document.getElementById("installConfirm").style.display="none";
+    }
+  }catch(error){
+    console.log("Install prompt error:",error);
+    showInstallHelp("Chrome could not open the installation window. Please use Chrome menu ⋮ and select Install app or Add to Home screen if available.");
+  }
+}
+
+function installApp(){
+  if(isAppInstalled()){
+    showInstallHelp("ORION STAR ONLINE CASINO is already installed on this device.");
+    return;
+  }
+
+  if(installPrompt){
+    runInstallPrompt();
+    return;
+  }
+
+  document.getElementById("installMessage").textContent=
+    "Checking whether Chrome can install this app. If the direct install option is not available, use the manual method below.";
+  document.getElementById("installConfirm").style.display="inline-flex";
+  document.getElementById("manualInstall").style.display="block";
+  showModal("installModal");
+}
+
+function confirmInstall(){
+  if(isAppInstalled()){
+    showInstallHelp("This app is already installed.");
+    return;
+  }
+
+  if(installPrompt){
+    runInstallPrompt();
+  }else{
+    document.getElementById("installMessage").textContent=
+      "The direct Chrome installation prompt is not available right now. Open Chrome menu ⋮ in the top-right corner and tap Install app or Add to Home screen if available.";
+    document.getElementById("installConfirm").style.display="none";
+    document.getElementById("manualInstall").style.display="block";
+  }
+}
+
+window.addEventListener("beforeinstallprompt",event=>{
+  event.preventDefault();
+  installPrompt=event;
+  console.log("PWA installation is available.");
+});
+
+window.addEventListener("appinstalled",()=>{
+  installPrompt=null;
+  document.getElementById("installMessage").textContent="ORION STAR ONLINE CASINO was installed successfully.";
+  document.getElementById("installConfirm").style.display="none";
+  showModal("installModal");
+});
+
+/* GAME LOGOS */
 function initials(name){
   return String(name||"GAME").trim().split(/\s+/).filter(Boolean).map(word=>word[0]||"").join("").slice(0,3).toUpperCase();
 }
@@ -506,11 +530,9 @@ function renderGames(filter=""){
   filtered.forEach(([name,url],index)=>{
     const card=document.createElement("article");
     card.className="game-card";
-
     const hot=document.createElement("span");
     hot.className="hot-badge";
     hot.textContent="POPULAR";
-
     const logo=makeLogo(name,url);
     const title=document.createElement("div");
     title.className="game-name";
@@ -525,7 +547,6 @@ function renderGames(filter=""){
 
     const info=document.createElement("div");
     info.className="game-info";
-
     const actions=document.createElement("div");
     actions.className="card-actions";
 
@@ -561,11 +582,9 @@ function makeTicker(id){
     games.forEach(([name,url],index)=>{
       const item=document.createElement("span");
       item.className="ticker-item";
-
       const logo=document.createElement("span");
       logo.className="ticker-logo";
       loadLogo(logo,name,url);
-
       const label=document.createElement("span");
 
       if(id==="tickerOne"){
@@ -574,7 +593,6 @@ function makeTicker(id){
         amount.style.color="#36d9ae";
         amount.textContent="$"+winAmounts[(index+repeat)%winAmounts.length]+" • ";
         label.appendChild(amount);
-
         const tag=document.createElement("strong");
         tag.textContent="VIEW PLATFORM";
         label.appendChild(tag);
@@ -588,26 +606,6 @@ function makeTicker(id){
   }
 }
 
-function updateAnimatedNumbers(){
-  document.querySelectorAll(".game-number").forEach(el=>{
-    const card=el.closest(".game-card");
-    if(!card)return;
-    const title=card.querySelector(".game-name").textContent;
-    const game=games.find(g=>g[0]===title);
-    const url=game?game[1]:"";
-    const key=title+"|"+url;
-    let current=countMap.get(key)||500;
-    let next=current;
-
-    while(next===current){
-      next=numberOptions[Math.floor(Math.random()*numberOptions.length)];
-    }
-
-    countMap.set(key,next);
-    el.textContent="● "+next.toLocaleString()+" Playing";
-  });
-}
-
 function toggleLiveWin(){
   const panel=document.getElementById("liveWinPanel");
   const button=document.getElementById("liveWinButton");
@@ -616,13 +614,8 @@ function toggleLiveWin(){
   button.textContent=open?"✕ CLOSE":"● LIVE WINS";
 }
 
-function showModal(id){
-  document.getElementById(id).classList.add("show");
-}
-
-function hideModal(id){
-  document.getElementById(id).classList.remove("show");
-}
+function showModal(id){document.getElementById(id).classList.add("show")}
+function hideModal(id){document.getElementById(id).classList.remove("show")}
 
 document.querySelectorAll(".modal").forEach(modal=>{
   modal.addEventListener("click",event=>{
@@ -631,12 +624,7 @@ document.querySelectorAll(".modal").forEach(modal=>{
 });
 
 function spinWheel(){
-  const results=[
-    "Explore another platform",
-    "Contact support",
-    "Explore the games",
-    "Good luck"
-  ];
+  const results=["Explore another platform","Contact support","Explore the games","Good luck"];
   document.getElementById("spinWheel").textContent="🎯";
   document.getElementById("spinResult").textContent=results[Math.floor(Math.random()*results.length)];
 }
@@ -646,63 +634,24 @@ function toggleMenu(){
   if(menu)menu.scrollIntoView({behavior:"smooth",block:"end"});
 }
 
-function installApp(){
-  if(installPrompt){
-    installPrompt.prompt();
-    installPrompt.userChoice.then(()=>{installPrompt=null});
-    return;
-  }
-
-  const message=document.getElementById("installMessage");
-  const button=document.getElementById("installConfirm");
-  const standalone=window.matchMedia("(display-mode: standalone)").matches||window.navigator.standalone===true;
-
-  if(standalone){
-    message.textContent="ORION STAR ONLINE CASINO is already running as an installed app.";
-    button.style.display="none";
-  }else{
-    message.textContent="If Chrome supports direct installation, the install option will appear here. Otherwise use Chrome menu ⋮ and choose Install app or Add to Home screen.";
-    button.style.display="inline-flex";
-  }
-
-  showModal("installModal");
-}
-
-async function confirmInstall(){
-  if(installPrompt){
-    installPrompt.prompt();
-    await installPrompt.userChoice;
-    installPrompt=null;
-    hideModal("installModal");
-  }else{
-    document.getElementById("installMessage").textContent="Open this page in Chrome. Tap ⋮ in the top-right corner, then choose Install app or Add to Home screen if available.";
-  }
-}
-
-window.addEventListener("beforeinstallprompt",event=>{
-  event.preventDefault();
-  installPrompt=event;
-});
-
-window.addEventListener("appinstalled",()=>{
-  installPrompt=null;
-  document.getElementById("installMessage").textContent="ORION STAR ONLINE CASINO was installed successfully.";
-});
-
 searchBox.addEventListener("input",()=>renderGames(searchBox.value));
 
 makeTicker("tickerOne");
 makeTicker("tickerTwo");
 renderGames();
 makeFeaturedLogos();
-
 document.getElementById("year").textContent=new Date().getFullYear();
 
-if("serviceWorker" in navigator&&location.protocol==="https:"){
-  window.addEventListener("load",()=>{
-    navigator.serviceWorker.register("./service-worker.js").catch(error=>{
-      console.log("Service worker registration failed",error);
-    });
+/* SERVICE WORKER REGISTRATION */
+if("serviceWorker" in navigator && location.protocol==="https:"){
+  window.addEventListener("load",async()=>{
+    try{
+      const registration=await navigator.serviceWorker.register("./service-worker.js");
+      await navigator.serviceWorker.ready;
+      console.log("ORION STAR service worker is ready:",registration.scope);
+    }catch(error){
+      console.error("Service worker registration failed:",error);
+    }
   });
 }
 </script>
@@ -710,10 +659,7 @@ if("serviceWorker" in navigator&&location.protocol==="https:"){
 <!-- CHAPORT LIVE CHAT WIDGET -->
 <script type="text/javascript">
 (function(w,d,v3){
-  w.chaportConfig = {
-    appId : '6aef60e3fd3025974d436f8e'
-  };
-
+  w.chaportConfig={appId:"6aef60e3fd3025974d436f8e"};
   if(w.chaport)return;
   v3=w.chaport={};
   v3._q=[];
@@ -723,15 +669,13 @@ if("serviceWorker" in navigator&&location.protocol==="https:"){
     if(!v3._l[e])v3._l[e]=[];
     v3._l[e].push(fn);
   };
-
-  var s=d.createElement('script');
-  s.type='text/javascript';
+  var s=d.createElement("script");
+  s.type="text/javascript";
   s.async=true;
-  s.src='https://app.chaport.com/javascripts/insert.js';
-
-  var ss=d.getElementsByTagName('script')[0];
+  s.src="https://app.chaport.com/javascripts/insert.js";
+  var ss=d.getElementsByTagName("script")[0];
   ss.parentNode.insertBefore(s,ss);
-})(window, document);
+})(window,document);
 </script>
 <!-- END CHAPORT LIVE CHAT WIDGET -->
 
